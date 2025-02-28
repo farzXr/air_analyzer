@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers\Indications;
 
+use App\Models\Indications;
+
 class Index
 {
     public function __invoke()
     {
-        return view('Indications.index');
+        $indications = Indications::all();
+        return view('Indications.index', compact('indications'));
     }
 }

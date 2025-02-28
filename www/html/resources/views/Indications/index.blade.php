@@ -1,4 +1,6 @@
 @extends('layouts.main')
 @section('content')
-    CO - 213213 ppm
+    @foreach($indications as $indication)
+        <div>{{$indication->id}}. {{$indication->name}} : {{$indication->value}} - {{$indication->date}}</div>
+    @endforeach
 @endsection

@@ -11,12 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('indications', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->float('value');
-            $table->dateTime('date');
-            $table->timestamps();
+        Schema::table('indications', function (Blueprint $table) {
+            $table->date('date')->change();
         });
     }
 
@@ -25,6 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('indications');
+        Schema::table('indications', function (Blueprint $table) {
+
+        });
     }
 };
