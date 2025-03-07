@@ -23,7 +23,7 @@ class Store extends FormRequest
     {
         return [
             'name' => 'required | string',
-            'value' => 'required',
+            'value' => 'required | numeric',
             'date' => 'required | date',
         ];
     }

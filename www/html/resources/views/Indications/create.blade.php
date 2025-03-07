@@ -1,15 +1,16 @@
 @extends('layouts.main')
 @section('content')
-    <form action="{{route('indications.store')}}" method="post">
+    <form action="{{route('indications.store')}}" method="POST">
         @csrf
-        @foreach($indicationsColumnNames as $name)
-            @if($name !== "created_at" && $name !== 'updated_at' && $name !== 'id')
-                <div class="input-create">
-                    <label for="{{$name}}">{{$name}}</label>
-                    <input type="text" name="{{$name}}">
-                </div>
-            @endif
+        @foreach($indicationsColumnNames as $columnName)
+            <div class="mb-3">
+                <label for="{{$columnName}}" class="form-label">{{$columnName}}</label>
+                <input class="form-control" id="{{$columnName}}" aria-describedby="emailHelp" name="{{$columnName}}" value="{{old($columnName)}}">
+                @error($columnName)
+                    <div class="alert alert-danger">{{$message}}</div>
+                @enderror
+            </div>
         @endforeach
-        <button type="submit">Create</button>
+        <button type="submit" class="btn btn-primary">Create</button>
     </form>
 @endsection

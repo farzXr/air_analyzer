@@ -1,0 +1,12 @@
+services:
+  nodejs:
+    build:
+      context: .
+      dockerfile: docker/nodejs/Dockerfile
+    container_name: laravel_nodejs
+    working_dir: /var/www/html
+    volumes:
+      - ./www:/var/www/
+    ports:
+      - "5173:5173"
+    command: ["sleep", "infinity"]

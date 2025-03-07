@@ -5,10 +5,15 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="{{asset('style.css')}}">
+    @vite('resources/sass/app.scss')
+    @vite('resources/css/main.css')
+    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
     <title>Document</title>
 </head>
 <body>
-    @yield('content')
+    @include('include.nav')
+    <div class="container">
+        @yield('content')
+    </div>
 </body>
 </html>

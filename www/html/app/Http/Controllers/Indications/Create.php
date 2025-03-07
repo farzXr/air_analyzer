@@ -10,7 +10,7 @@ class Create extends Controller
 {
     public function __invoke()
     {
-        $indicationsColumnNames = Schema::getColumnListing('indications');
+        $indicationsColumnNames = Indications::getTableColumnNames(['created_at', 'updated_at', 'id']);
         return view('Indications.create', compact('indicationsColumnNames'));
     }
 }
