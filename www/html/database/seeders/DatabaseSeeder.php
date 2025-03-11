@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\CO;
 use App\Models\Indications;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -14,7 +15,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        Indications::factory()->count(10)->create();
+        //CO::truncate();
+        //Indications::factory()->count(10)->create();
+        CO::factory()->count(10)->create();
         // User::factory(10)->create();
 
         /*User::factory()->create([

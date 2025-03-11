@@ -28,6 +28,25 @@ Route::prefix('indications')
     Route::get('/verify', VerificationController::class)->name('verify')->middleware('guest');
 });*/
 
+/**
+ * model CO
+ */
+Route::prefix('co')
+    ->namespace('App\\Http\\Controllers\\CO')
+    ->name('co.')
+    ->group(function () {
+        Route::get('', IndexController::class)->name('index');
+        Route::prefix('statistics')
+            ->name('statistics.')
+            ->group(function () {
+                Route::get('avg/{period}', \Statistics\AVGController::class)->name('avg');
+                Route::get('max/{period}', \Statistics\MAXController::class)->name('max');
+                Route::get('min/{period}', \Statistics\MINController::class)->name('min');
+            });
+    });
+
+
+
 
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
