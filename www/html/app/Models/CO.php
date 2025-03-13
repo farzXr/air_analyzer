@@ -30,4 +30,6 @@ class CO extends Model
             default: return 0;
         }
     }
+
+
 }

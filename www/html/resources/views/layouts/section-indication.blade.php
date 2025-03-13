@@ -11,16 +11,18 @@
     <title>Document</title>
 </head>
 <body>
-    @include('include.nav')
-    <div class="container" style="width: 800px; text-align: center; padding: 20px;">
-        @yield('content')
-    </div>
-    <div class="body-nav" style="margin-top: -20px">
-        @yield('navigation')
-        @yield('statistic')
+    <div id="section-indication">
+        @include('include.nav')
+        <div class="container" style="width: 800px; text-align: center; padding: 20px;">
+            @yield('content')
+        </div>
+        <div class="body-nav" style="margin-top: -20px">
+            @yield('navigation')
+            @yield('statistic')
+        </div>
     </div>
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
+        /*document.addEventListener("DOMContentLoaded", function () {
             const typeElement = document.querySelector(".u-text-1");
             const statisticElement = document.querySelector(".u-text-2");
 
@@ -54,7 +56,7 @@
                 });
             });
         });
-
+*/
     </script>
 
 </body>

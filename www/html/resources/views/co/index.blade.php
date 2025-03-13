@@ -24,12 +24,8 @@
 @endsection
 
 @section('statistic')
-    <div style="text-align: center;" class="u-align-center u-container-align-center u-container-style u-list-item u-palette-1-base u-radius u-repeater-item u-shape-round u-video-cover u-list-item-1" data-animation-direction="Up" data-animation-name="customAnimationIn" data-animation-duration="1500">
-        <div class="u-container-layout u-similar-container u-valign-bottom u-container-layout-1">
-            <span class="u-align-center u-file-icon u-hover-feature u-icon u-icon-1" data-animation-name="" data-animation-duration="0" data-animation-delay="0" data-animation-direction=""><img src="images/77.png" alt=""></span>
-            <h4 class="u-align-center u-text u-text-default u-text-1"></h4>
-            <h4 class="u-align-center u-text u-text-default u-text-2"></h4>
-        </div>
+    <div id="block-statistic">
+        <stat-comp></stat-comp>
     </div>
 @endsection
 

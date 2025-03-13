@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CO\IndexController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -35,13 +36,21 @@ Route::prefix('co')
     ->namespace('App\\Http\\Controllers\\CO')
     ->name('co.')
     ->group(function () {
+
         Route::get('', IndexController::class)->name('index');
+
         Route::prefix('statistics')
             ->name('statistics.')
             ->group(function () {
                 Route::get('avg/{period}', \Statistics\AVGController::class)->name('avg');
                 Route::get('max/{period}', \Statistics\MAXController::class)->name('max');
                 Route::get('min/{period}', \Statistics\MINController::class)->name('min');
+            });
+
+        Route::prefix('api')
+            ->name('api.')
+            ->group(function () {
+                Route::get('getReadingDevice', );
             });
     });
 
@@ -52,4 +61,7 @@ Route::prefix('co')
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Auth::routes();
+
+
+
 
