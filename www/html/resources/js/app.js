@@ -14,3 +14,7 @@ sectionIndication.component('stat-comp', StatisticComponent);
 sectionIndication.component('table-comp', TableComponent);
 sectionIndication.mount('#section-indication')
 
+//testWs
+import MessageComponent from "./components/testWs/MessageComponent.vue";
+const testWs = createApp({}).component('test-ws', MessageComponent).mount('#testWs')
+

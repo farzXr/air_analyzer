@@ -54,6 +54,16 @@ Route::prefix('co')
             });
     });
 
+Route::prefix('testWs')
+    ->namespace('App\\Http\\Controllers\\TestWs')
+    ->name('testWs.')
+    ->group(function () {
+        Route::get('index1', IndexController1::class)->name('index1');
+        Route::get('index2', IndexController2::class)->name('index2');
+        Route::post('sendData', SendData::class)->name('sendData');
+        Route::get('getData', GetData::class)->name('getData');
+    });
+
 
 
 

@@ -10,6 +10,5 @@ class GetReadingsDeviceController extends Controller
     public function __invoke()
     {
         $response = Http::get('https://api.air-analyzer.io/api/v1/readings');
-        
     }
 }

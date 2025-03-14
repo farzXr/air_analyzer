@@ -11,9 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('readings_devices', function (Blueprint $table) {
+        Schema::create('test_ws', function (Blueprint $table) {
             $table->id();
-
+            $table->string('message');
             $table->timestamps();
         });
     }
@@ -23,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('readings_devices');
+        Schema::dropIfExists('test_ws');
     }
 };
