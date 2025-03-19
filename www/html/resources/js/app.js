@@ -17,4 +17,6 @@ sectionIndication.mount('#section-indication')
 //testWs
 import MessageComponent from "./components/testWs/MessageComponent.vue";
 const testWs = createApp({}).component('test-ws', MessageComponent).mount('#testWs')
+import SendMessageComponent from "./components/testWs/SendMessageComponent.vue";
+const testWs2 = createApp({}).component('test-ws2', SendMessageComponent).mount('#testWs2');
 

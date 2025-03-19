@@ -6,13 +6,12 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', function () {
-    return view('startPage');
+    return view('startPage.welcome');
 });
 
 Route::prefix('indications')
     ->namespace('App\\Http\\Controllers\\Indications')
     ->name('indications.')
-    ->middleware('auth')
     ->group(function () {
     Route::get('', Index::class)->name('index');
     Route::get('/create', Create::class)->name('create');

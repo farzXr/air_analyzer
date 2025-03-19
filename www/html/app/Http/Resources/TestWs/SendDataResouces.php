@@ -15,8 +15,8 @@ class SendDataResouces extends JsonResource
     public function toArray(Request $request): array
     {
         return [
-            'id' => '1',
-            'message' => 'да'
+            'id' => $this->id,
+            'message' => $this->message
         ];
 
     }

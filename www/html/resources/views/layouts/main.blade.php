@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
     @vite('resources/sass/app.scss')
-    @vite('resources/css/main.css')
+
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
     <link rel="stylesheet" href="{{asset('css/air_blocks/nicepage.css')}}" media="screen">
     <link rel="stylesheet" href="{{asset('css/air_blocks/index.css')}}" media="screen">
