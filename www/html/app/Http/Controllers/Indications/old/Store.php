@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Indications;
+namespace app\Http\Controllers\Indications\old;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Indications\Store as StoreRequest;

@@ -14,7 +14,7 @@ class SendData
         $data = $request->validated();
         $testWs = TestWs::create($data);
         $response = new SendDataResouces($testWs);
-        event(new TestWsEvent($testWs));
+        //event(new TestWsEvent($testWs));
         //return redirect()->route('testWs.index2');
         return response()->json($response, 200);
         //return view('testWs.index2');

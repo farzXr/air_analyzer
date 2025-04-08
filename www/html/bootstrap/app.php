@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Middleware\HandleInertiaRequests;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
@@ -21,6 +22,10 @@ return Application::configure(basePath: dirname(__DIR__))
             'auth' => \App\Http\Middleware\Authenticate::class,
             'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
         ]);
+        $middleware->web(append: [
+            HandleInertiaRequests::class,
+        ]);
+
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //

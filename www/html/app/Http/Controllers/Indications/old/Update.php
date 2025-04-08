@@ -1,6 +1,6 @@
 <?php
 
-namespace app\Http\Controllers\Indications;
+namespace app\Http\Controllers\Indications\old;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Indications\UpdateRequest;
@@ -14,6 +14,6 @@ class Update extends Controller
         $data = $request->validated();
         UpdateService::update($indications, $data);
         $columnName = Indications::getTableColumnNames();
-        return view('Indications.show', compact('indications', 'columnName'));
+        return view('IndicationsController.show', compact('indications', 'columnName'));
     }
 }

@@ -19,6 +19,12 @@
         "sass": "^1.56.1",
         "tailwindcss": "^3.4.13",
         "vite": "^5.0.11",
-        "vue": "^3.2.37"
+        "vue": "^3.5.13"
+    },
+    "dependencies": {
+        "@inertiajs/vue3": "^2.0.5",
+        "chart.js": "^4.4.8",
+        "irc": "^0.5.2",
+        "ziggy": "^2.4.0"
     }
 }

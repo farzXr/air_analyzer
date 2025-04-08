@@ -1,5 +1,10 @@
 import './bootstrap';
-import { createApp } from 'vue';
+import { createApp, h} from 'vue';
+import {createInertiaApp} from "@inertiajs/vue3";
+import {resolvePageComponent} from "laravel-vite-plugin/inertia-helpers";
+import {ZiggyVue} from "../../vendor/tightenco/ziggy/dist/index.js";
+import {Ziggy} from "./ziggy.js";
+
 
 const app = createApp({});
 import ExampleComponent from './components/ExampleComponent.vue';
@@ -20,3 +25,17 @@ const testWs = createApp({}).component('test-ws', MessageComponent).mount('#test
 import SendMessageComponent from "./components/testWs/SendMessageComponent.vue";
 const testWs2 = createApp({}).component('test-ws2', SendMessageComponent).mount('#testWs2');
 
+createInertiaApp({
+    resolve: (name) => {
+        const path = `./Pages/${name}.vue`;
+        console.log(`Trying to resolve: ${path}`);
+        console.log(`Current module URL: ${import.meta.url}`);
+        return resolvePageComponent(path, import.meta.glob('./Pages/**/*.vue'));
+    },
+    setup({ el, App, props, plugin }) {
+        createApp({ render: () => h(App, props) })
+            .use(plugin)
+            .use(ZiggyVue, Ziggy)
+            .mount(el);
+    },
+});

@@ -1,8 +1,8 @@
 <script setup>
 import {onMounted, ref} from "vue";
-window.Echo.channel('test-ws').listen('.test_ws', res => {
+/*window.Echo.channel('test-ws').listen('.test_ws', res => {
     console.log(res);
-})
+})*/
 
     let data = ref();
     const getData = async function (){

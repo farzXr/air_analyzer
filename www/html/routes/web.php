@@ -1,19 +1,40 @@
 <?php
 
 use App\Http\Controllers\CO\IndexController;
+use App\Http\Controllers\Indications\IndicationsController;
 use Illuminate\Support\Facades\Route;
+use Inertia\Inertia;
 
 
-
-Route::get('/', function () {
-    return view('startPage.welcome');
+Route::get('/getHello', function () {
+    $response = \Illuminate\Support\Facades\Http::get('http://air-analyzer-golang-1:8080/getHello');
+    return  response()->json($response->json());
 });
 
-Route::prefix('indications')
-    ->namespace('App\\Http\\Controllers\\Indications')
+Route::get('/', function () {
+    return Inertia::render('Welcome', []);
+})->name('welcome');
+Route::get('/indications', IndicationsController::class)->name('indications');
+
+Route::prefix('indications')->namespace('App\Http\Controllers\Indications\CH4')->group(function () {
+    Route::prefix('ch4')->name('CH4')->group(function () {
+        Route::get('', CH4Controller::class);
+        Route::get('statistic', Statistic\StatisticController::class)->name('.statistic');
+    });
+    Route::get('co2', function (){ return inertia('More/CO2/CO2'); })->name('CO2');
+    Route::get('co', function (){ return inertia('More/CO/CO'); })->name('CO');
+    Route::get('tvoc', function (){ return inertia('More/TVOC/TVOC'); })->name('TVOC');
+    Route::get('hcho', function (){ return inertia('More/HCHO/HCHO'); })->name('HCHO');
+    Route::get('temp', function (){ return inertia('More/Temp/Temp'); })->name('температура');
+    Route::get('humi', function (){ return inertia('More/Humi/Humi'); })->name('влажность');
+    Route::get('pm', function (){ return inertia('More/PM/PM'); })->name('PM');
+});
+
+/*Route::prefix('indications')
+    ->namespace('App\\Http\\Controllers\\IndicationsController\\old')
     ->name('indications.')
     ->group(function () {
-    Route::get('', Index::class)->name('index');
+    //Route::get('', Index::class)->name('index');
     Route::get('/create', Create::class)->name('create');
     Route::post('', Store::class)->name('store');
     Route::get('/{indications}', Show::class)->name('show');
